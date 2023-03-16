@@ -33,8 +33,8 @@ const addNoteHandler = (request, h) => {
   response.code(500);
   return response;
 };
-const getAllNoteshandler = () => ({
-  status: 'succcess',
+const getAllNotesHandler = () => ({
+  status: 'success',
   data: {
     notes,
   },
@@ -60,7 +60,7 @@ const getNoteByIdHandler = (request, h) => {
   response.code(404);
   return response;
 };
-const editNoteByhandler = (request, h) => {
+const editNoteByIdHandler = (request, h) => {
   const { id } = request.params;
 
   const { title, tags, body } = request.payload;
@@ -93,7 +93,7 @@ const editNoteByhandler = (request, h) => {
   return response;
 };
 
-const deleteNoteByIdhandler = (request, h) => {
+const deleteNoteByIdHandler = (request, h) => {
   const { id } = request.params;
 
   const index = notes.findIndex((note) => note.id === id);
@@ -118,8 +118,8 @@ const deleteNoteByIdhandler = (request, h) => {
 
 module.exports = {
   addNoteHandler,
-  getAllNoteshandler,
+  getAllNotesHandler,
   getNoteByIdHandler,
-  editNoteByhandler,
-  deleteNoteByIdhandler,
+  editNoteByIdHandler,
+  deleteNoteByIdHandler,
 };
